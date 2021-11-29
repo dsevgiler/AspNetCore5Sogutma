@@ -1,0 +1,59 @@
+﻿@model Entities.Concrete.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Ürün Ekle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Adı</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label">Kodu</label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Açıklama</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label">Resim</label>
+                <input type="file" name="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">Kategori</label>
+                @Html.DropDownListFor(c => c.CategoryId, (List<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="IsActive" /> <label class="form-label" asp-for="IsActive">Aktif mi</label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Ürün Listesi</a>
+</div>
+
+@section scripts
+{
+    <script src="https://cdn.ckeditor.com/4.16.1/basic/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('Description');
+    </script>
+}

@@ -1,0 +1,79 @@
+﻿@model Entities.Concrete.About
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>About</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" disabled />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="file" name="file" class="form-control" />
+                <img src="~/img/about/@Html.DisplayFor(model =>model.ImageUrl)" style="height:150px;width:200px;" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Misyon" class="control-label"></label>
+                <input asp-for="Misyon" class="form-control" />
+                <span asp-validation-for="Misyon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vizyon" class="control-label"></label>
+                <input asp-for="Vizyon" class="form-control" />
+                <span asp-validation-for="Vizyon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MusteriOdaklilik" class="control-label"></label>
+                <input asp-for="MusteriOdaklilik" class="form-control" />
+                <span asp-validation-for="MusteriOdaklilik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurustlukProfesyonellik" class="control-label"></label>
+                <input asp-for="DurustlukProfesyonellik" class="form-control" />
+                <span asp-validation-for="DurustlukProfesyonellik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ilkeler" class="control-label"></label>
+                <input asp-for="Ilkeler" class="form-control" />
+                <span asp-validation-for="Ilkeler" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script src="https://cdn.ckeditor.com/4.16.1/basic/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('Description');
+    </script>
+}
