@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.Contexts
             optionsBuilder.EnableSensitiveDataLogging();
             if (!optionsBuilder.IsConfigured)
             {
-                // optionsBuilder.UseSqlServer(@"Server=176.53.69.151\MSSQLSERVER2019;Database=sevgiler_ucsan;user id=sevgiler_ucsan;password=V0vi3a6%;");
+                // optionsBuilder.UseSqlServer(@"Server=176.53.69.151\MSSQLSERVER2019;Database=sevgiler_ucsan;user id=sevgiler_ucsan;password=;");
                 optionsBuilder.UseSqlServer(connectionString: @"Server=SA-DENIZSEVGI;Database=UcsanSogutma;Trusted_Connection=true;");
             }
 
